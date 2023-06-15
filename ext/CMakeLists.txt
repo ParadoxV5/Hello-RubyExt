@@ -9,6 +9,8 @@ add_library(ext SHARED ext.c)
 IF(WIN32)
   SET(RUBY_PLATFORM x64-mingw-ucrt)
   SET(INSTALL_ROOT C:/PortablePrograms/rubyinstaller-3.2.1-1-x64)
+  target_link_libraries(ext ${INSTALL_ROOT}/bin/x64-ucrt-ruby320.dll)
+  SET(CMAKE_SHARED_LIBRARY_SUFFIX .so) # Damn MinGW Ruby, doesn’t load `.dll` but loads `.so`
 ELSE()
   SET(RUBY_PLATFORM x86_64-linux)
   SET(INSTALL_ROOT /usr/local)

@@ -1,2 +1,7 @@
 # C
 /build/
+
+# Ruby Extension
+/Makefile
+/*.o
+/*.so
